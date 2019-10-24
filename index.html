@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+<title>New User Request</title>
+</head>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=tel] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=date] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=email] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=number] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+select{
+  background-color: white;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<body>
+
+<div class="container">
+  <form name="newuserform" method="POST" action="sendnewuser.php">
+
+    <h2 align="center">New User Request</h2>
+  
+    <h3>Requestor Information</h3>
+
+    <label for="requestorName">Name of Person Making This Request: </label><br />
+    <input type="text" id="requestorName" name="requestorName" placeholder="Requestor name.." required><br />
+
+    <label for="requestorPhone">Phone Number of Person Making This Request: </label><br />
+    <input type="tel" id="requestorPhone" name="requestorPhone" placeholder="402-597-3000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br />
+    
+    <label for="requestorEmail">eMail Address of Person Making This Request: </label><br />
+    <input type="email" id="requestorEmail" name="requestorEmail" required><br />
+    
+    <h3>Employee Information</h3>
+
+    <label for="givenName">Given Name / First Name: </label><br />
+    <input type="text" id="givenName" name="givenName" placeholder="Employee given name.." required><br />
+
+    <label for="surname">Surname / Family Name / Last Name: </label><br />
+    <input type="text" id="surname" name="surname" placeholder="Employee surname.." required><br />
+
+    <label for="dueDate">Expected Start Date: </label><br />
+    <input type="date" id="dueDate" name="dueDate"><br />
+
+    <label for="employeeType">Employee Type: </label><br />
+    <select id="employeeType" name="employeeType" required>
+      <option hidden disabled selected> -- select an option -- </option>
+      <option value="Permanent">Permanent</option>
+      <option value="Temporary">Temporary</option>
+      <option value="Seasonal">Seasonal</option>
+    </select><br />
+    
+    <label for="department">Department: </label>
+    <input type="text" id="department" name="department" required><br />
+    
+    <label for="title">Title: </label>
+    <input type="text" id="title" name="title" required><br />
+    
+    <label for="employeeNumber">Employee Number: </label>
+    <input type="number" id="employeeNumber" name="employeeNumber" required><br />
+    
+    <label for="supervisor">Supervisor's eMail Address: </label>
+    <input type="text" id="supervisor" name="supervisor" required><br />
+        
+    <label for="building">Building: </label>
+    <select name="building" required>
+      <option hidden disabled selected> -- select an option -- </option>
+      <option value="John Galt Blvd">John Galt Blvd</option>
+      <option value="O Street">O Street</option>
+      <option value="96th Street">96th Street</option>
+      <option value="F Street">F Street</option>
+      <option value="I Circle">I Circle</option>
+      <option value="DC East">DC East</option>
+      <option value="DC West">DC West</option>
+      <option value="Snyder">Snyder</option>
+      <option value="Retail Store">Retail Store</option>
+    </select>    
+
+    <h3>Additional Employee Options</h3>
+    
+    <label for="telephoneNumber">Telephone Number: </label>
+    <input type="tel" id="telephoneNumber" name="telephoneNumber" placeholder="leave blank if none" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" /><br />
+
+    <label for="mailStop">Mail Stop: </label>
+    <input type="text" id="mailStop" name="mailStop" placeholder="leave blank if none"><br />
+    
+    <input type="checkbox" id="o365User" name="o365User" value="TRUE">
+    <label for="o365User"> Email / Office 365 User</label><br /><br />
+
+    <label for="o365Level">Office 365 License Type: </label>
+    <select name="o365Level" id="o365Level">
+      <option hidden disabled selected> -- select an option -- </option>
+      <option value="CN=o365 E3,OU=Office365License,OU=OSIGroups,DC=omahasteaks,DC=com">E3</option>
+    </select>
+    
+    <input type="checkbox" id="vpnUser" name="vpnUser" value="TRUE">
+    <label for="vpnUser"> VPN User</label><br /><br />
+    
+    <label for="mobileNumber">Mobile Number For VPN: </label><br />
+    <input type="tel" id="mobileNumber" name="mobileNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="Required for VPN access">
+
+    <label>Mobile Provider For VPN: </label>
+    <select name="mobileProvider">
+      <option hidden disabled selected> -- select an option -- </option>
+      <option value="@message.alltel.com">Alltel</option>
+      <option value="@txt.att.net">AT&amp;T</option>
+      <option value="@myboostmobile.com">Boost Mobile</option>
+      <option value="@messaging.sprintpcs.com">Sprint</option>
+      <option value="@tmomail.net">T-Mobile</option>
+      <option value="@email.uscc.net">US Cellular</option>
+      <option value="@vtext.com">Verizon</option>
+      <option value="@vmobl.com">Virgin Mobile</option>
+      <option value="@text.republicwireless.com">Republic Wireless</option>
+      <option value="@sms.mycricket.com">Cricket</option>
+    </select>
+
+    <h3>Groups</h3>
+    
+    <input type="checkbox" id="groupAllMailUsers" name="groupAllMailUsers" value="TRUE">
+    <label> All Mail Users</label><br /><br />
+
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+</body>
+</html>
